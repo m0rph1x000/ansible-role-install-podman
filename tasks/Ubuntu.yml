@@ -1,0 +1,30 @@
+---
+- name: Update apt chach.
+  apt: update_cache=yes
+
+- name: Install Podman on Ubuntu 22.
+  apt:
+    name: podman
+    state: present
+  when: ansible_distribution_major_version == '22'
+  register: ubuntu_2204
+
+- name: Add Kubic repository.
+  copy:
+    dest: "{{ podman_repository_path }}"
+    content: "{{ deb_podman_repository_url }}{{ ansible_distribution_version }}/ /"
+    mode: 0644
+    owner: root
+    group: root
+  when: ubuntu_2204.skipped == true
+  notify: update chach
+
+- name: Add apt key
+  apt_key:
+    url: "{{ podman_apt_key_url }}"
+    state: presen
+
+- name: install Podman.
+  apt:
+    name: podman
+    state: present

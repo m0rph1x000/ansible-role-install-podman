@@ -1,0 +1,9 @@
+---
+# CentOS-8 and Rockylinux-8
+- name: "Update {{ ansible_distribution }} cache"
+  dnf: update_cache=yes
+
+- name: Install Podman.
+  dnf:
+    name: podman
+    state: present

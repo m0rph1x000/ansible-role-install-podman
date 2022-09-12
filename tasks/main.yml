@@ -1,0 +1,14 @@
+---
+# Ubuntu
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_distribution }}.yml"
+
+- include_tasks: "{{ ansible_distribution }}.yml"
+
+# Other
+- name: Include variables for CentOS, and Rockylinux
+  include_vars: "default.yml"
+  when: ansible_distribution == "Rocky" or
+    ansible_distribution == "CentOS"
+
+- include_tasks: "default.yml"

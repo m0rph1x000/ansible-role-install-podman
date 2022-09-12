@@ -1,0 +1,4 @@
+---
+podman_repository_path: "/etc/apt/sources.list.d/devel:kubic:libcontainers:stable.list"
+podman_apt_key_url: "https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/testing/xUbuntu_{{ ansible_distribution_version }}/Release.key"
+deb_podman_repository_url: "deb https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/stable/xUbuntu_"

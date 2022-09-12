@@ -1,0 +1,3 @@
+---
+- name: update chach
+  apt: update_cache=yes
