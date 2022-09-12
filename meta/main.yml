@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: podman installation
+  role_name: ansible-role-install-podman
   author: m0rph1x000
   description: Podman for Linux.
   license: "license (BSD, MIT)"
