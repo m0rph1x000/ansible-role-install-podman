@@ -12,3 +12,4 @@
     ansible_distribution == "CentOS"
 
 - include_tasks: "default.yml"
+  when: ansible_distribution != "Ubuntu"
